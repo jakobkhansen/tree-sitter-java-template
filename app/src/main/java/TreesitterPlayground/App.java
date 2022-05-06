@@ -9,7 +9,6 @@ import ai.serenade.treesitter.Languages;
 import ai.serenade.treesitter.Node;
 import ai.serenade.treesitter.Parser;
 import ai.serenade.treesitter.Tree;
-import ai.serenade.treesitter.TreeCursor;
 
 public class App {
     static {
@@ -19,9 +18,9 @@ public class App {
 
     public static void main(String[] args) {
         Parser parser = new Parser();
-        parser.setLanguage(Languages.python());
+        parser.setLanguage(Languages.java());
         try {
-            Tree tree = parser.parseString("print(2 + 2)");
+            Tree tree = parser.parseString("class Hello {}");
             Node root = tree.getRootNode();
             System.out.println(root.getNodeString());
 
