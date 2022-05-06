@@ -3,17 +3,39 @@
  */
 package TreesitterPlayground;
 
-import java.io.File;
-
 import ai.serenade.treesitter.Languages;
 import ai.serenade.treesitter.Node;
 import ai.serenade.treesitter.Parser;
 import ai.serenade.treesitter.Tree;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
 
 public class App {
+
+    private static final String LIB = "libparser.so";
+
     static {
-        File lib = new File("../parser/" + System.mapLibraryName("parser"));
-        System.load(lib.getAbsolutePath());
+        try {
+            InputStream in = App.class.getResourceAsStream("/libparser.so");
+
+            File fileOut = new File(
+                System.getProperty("java.io.tmpdir") + "/" + LIB
+            );
+
+            OutputStream outStream = new FileOutputStream(fileOut);
+
+            Files.copy(in, fileOut.toPath(), StandardCopyOption.REPLACE_EXISTING);
+
+            System.load(fileOut.getAbsolutePath());
+            outStream.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public static void main(String[] args) {
@@ -23,8 +45,6 @@ public class App {
             Tree tree = parser.parseString("class Hello {}");
             Node root = tree.getRootNode();
             System.out.println(root.getNodeString());
-
-            
         } catch (Exception e) {} finally {
             parser.close();
         }
