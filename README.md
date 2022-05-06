@@ -41,3 +41,4 @@ Parser parser = new Parser();
 parser.setLanguage(Languages.python());
 ```
 
+Further development of the Java bindings for tree-sitter is being developed (here)[https://github.com/jakobkhansen/java-tree-sitter/tree/master]
