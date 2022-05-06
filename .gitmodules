@@ -1,6 +1,3 @@
 [submodule "grammars/tree-sitter-java"]
 	path = grammars/tree-sitter-java
 	url = https://github.com/tree-sitter/tree-sitter-java.git
-[submodule "java-tree-sitter"]
-	path = java-tree-sitter
-	url = ./java-tree-sitter
