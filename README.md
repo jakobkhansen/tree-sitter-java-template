@@ -20,6 +20,8 @@ Run with:
 gradle run
 ```
 
+Project also generates a fat jar (portable jar) in `app/build/libs/app-all.jar`
+
 
 ## Parsing other languages
 
