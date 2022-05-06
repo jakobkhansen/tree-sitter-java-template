@@ -3,4 +3,4 @@
 	url = https://github.com/tree-sitter/tree-sitter-java.git
 [submodule "java-tree-sitter"]
 	path = java-tree-sitter
-	url = https://github.com/jakobkhansen/java-tree-sitter.git
+	url = ./java-tree-sitter
