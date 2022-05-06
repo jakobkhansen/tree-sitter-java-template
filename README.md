@@ -36,6 +36,6 @@ Finally, set the correct language for your parser:
 
 ```java
 Parser parser = new Parser();
-parser.setLanguage(Languages.java());
+parser.setLanguage(Languages.python());
 ```
 
